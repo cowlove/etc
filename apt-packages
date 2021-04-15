@@ -1,0 +1,27 @@
+gnuplot git
+virtualbox
+arduino git build-essential bash-completion gnuplot
+curl
+python
+vagrant
+gitk
+virtualbox-guest-additions-iso
+virtualbox-ext-pack
+net-tools
+joystick
+socat
+chrome-gnome-shell
+gnuplot
+openssh-server
+sysstat
+ccache
+transmission
+ubuntu-restricted-extras
+mplayer
+ffmpeg
+gddrescue
+feh
+imagemagick-6.q16
+motion
+v4l-utils
+vlc

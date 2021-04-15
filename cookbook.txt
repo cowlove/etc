@@ -1,0 +1,13 @@
+
+# ip forwarding 
+/usr/bin/echo 1 > /proc/sys/net/ipv4/ip_forward
+/usr/sbin/iptables -t nat -A POSTROUTING -o wlan1 -j MASQUERADE
+/usr/sbin/iptables -A FORWARD -i wlan1 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# portmap redirect 
+/usr/bin/sudo -u pi AUTOSSH_GATETIME=0 /usr/bin/screen -L -Logfile /home/pi/screen.log -dm /usr/bin/autossh -vvnNT -o IdentitiesOnly=yes -i /home/pi/.ssh/cowlove.first.pem cowlove.first@cowlove-56666.portmap.host -N -R 56666:localhost:22
+
+# ffmpeg concat with no intermediate file 
+ffmpeg -f concat -safe 0 -i <(printf "file '%s'\n" `pwd`/*.mkv) -y  ~/out.mp4
+
+
