@@ -5,7 +5,8 @@
 /usr/sbin/iptables -A FORWARD -i wlan1 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
 
 # portmap redirect 
-/usr/bin/sudo -u pi AUTOSSH_GATETIME=0 /usr/bin/screen -L -Logfile /home/pi/screen.log -dm /usr/bin/autossh -vvnNT -o IdentitiesOnly=yes -i /home/pi/.ssh/cowlove.first.pem cowlove.first@cowlove-56666.portmap.host -N -R 56666:localhost:22
+/usr/bin/sudo -u jim AUTOSSH_GATETIME=0 /usr/bin/screen -L -Logfile /home/jikm/screen.log -dm /usr/bin/autossh -vvnNT -o ExitOnForwardFailure=yes -o IdentitiesOnly=yes -i /home/jim/.ssh/pair2.pem ec2-user@54.188.66.93 -N -R 10022:localhost:22
+
 
 # ffmpeg concat with no intermediate file 
 ffmpeg -f concat -safe 0 -i <(printf "file '%s'\n" `pwd`/*.mkv) -y  ~/out.mp4
